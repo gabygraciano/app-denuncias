@@ -1,6 +1,12 @@
 ## Descrição ℹ️
 O Vigia é um aplicativo mobile para envio de denúncias com geolocalização no Distrito Federal, pensado para promover segurança urbana e geração de dados a partir da participação cidadã. Ele permite que qualquer pessoa envie denúncias sobre desordens urbanas de forma rápida, utilizando a localização aproximada de onde está ou do evento denunciado, além de possuir um botão de alerta de insegurança para que autoridades próximas possam receber a mensagem e diminua o risco de assaltos e outros crimes. A plataforma é integrada com um sistema web de monitoramento de uso pelas autoridades, com os dados gerados no aplicaitvo, a plataforma é alimentada com essas denúncias de desordens urbanas e possibilita que a Polícia possa enviar diretamente a solicitação para o órgão responsável, mas para além disso, permite o monitoramento contínuo dessas entradas e gera dados para o modelo de IA preditiva que consegue mapear zonas de risco e demandas de policiamento, otimizando a gestão da polícia e mantendo a segurança do Distrito Federal com alta acurácia. 
 
+### Repositórios da solução
+- [Aplicativo mobile de engajamento cidadão para geração de dados](https://github.com/gabygraciano/app-denuncias)
+- [Plataforma Web de monitoramento e prevenção](https://github.com/Wictor0/vigia-web)
+- [Modelo de predição - Machine Learning](https://github.com/luislauriano/cidade-segura)
+
+
 ## Funcionalidades 📋
 1. **Cadastro e login de usuários**
    - Autenticação integrada ao Supabase Auth.
@@ -67,8 +73,8 @@ O Vigia é um aplicativo mobile para envio de denúncias com geolocalização no
 ---
 
 ## Documentação 📄
-- [Pitch](https://docs.google.com/presentation/d/1Uux5_HOsO_8ycZFP4b0ZRpm7pJAY7d2Ti2AQzNBCy9k/edit?usp=sharing)
-- [Vídeo de Demonstração](https://youtube.com/shorts/g0PqF8p7Psg?si=FFZRF1xsirs3Ggfd)
+- [Pitch](https://docs.google.com/presentation/d/11cKMmKdL0x_1oxNgFkoqDOUsL4tjD13W0P-9OquYtbs/edit?usp=sharing)
+- [Vídeo de Demonstração](https://www.youtube.com/watch?v=vivpIc3Jj4s)
 
 
 ## Instalação ⬇️
