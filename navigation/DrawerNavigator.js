@@ -1,20 +1,24 @@
-// navigation/DrawerNavigator.js
-import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import BottomTabNavigator from './BottomTabNavigator';
-import CustomDrawerContent from './CustomDrawerContent'; // você pode criar esse arquivo com nome e botão sair
+import BottomTabsNavigator from './BottomTabsNavigator';
+import DrawerContent from './DrawerContent';
 
 const Drawer = createDrawerNavigator();
 
 export default function DrawerNavigator() {
   return (
     <Drawer.Navigator
-      drawerContent={(props) => <CustomDrawerContent {...props} />}
+      drawerContent={(props) => <DrawerContent {...props} />}
       screenOptions={{
         headerShown: false,
+        drawerStyle: {
+          backgroundColor: '#0D0D0D',
+        },
+        drawerLabelStyle: {
+          color: '#fff',
+        },
       }}
     >
-      <Drawer.Screen name="MainTabs" component={BottomTabNavigator} />
+      <Drawer.Screen name="App" component={BottomTabsNavigator} />
     </Drawer.Navigator>
   );
 }

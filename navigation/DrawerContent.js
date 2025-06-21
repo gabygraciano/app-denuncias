@@ -1,26 +1,20 @@
-// navigation/DrawerContent.js
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { DrawerContentScrollView } from '@react-navigation/drawer';
-import { Ionicons } from '@expo/vector-icons';
+import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useAuth } from '../context/AuthContext';
 
 export default function DrawerContent(props) {
-  const userName = 'João da Silva'; // pode vir de API, Context ou AsyncStorage depois
+  const { logout } = useAuth();
 
   return (
-    <DrawerContentScrollView {...props} contentContainerStyle={styles.container}>
+    <DrawerContentScrollView {...props} contentContainerStyle={{ flex: 1 }}>
       <View style={styles.header}>
-        <Text style={styles.userName}>{userName}</Text>
+        <Image source={require('../assets/images/logo.png')} style={styles.logo} />
+        <Text style={styles.username}>Olá, Usuário</Text>
       </View>
 
-      <TouchableOpacity
-        style={styles.logoutButton}
-        onPress={() => {
-          // Lógica de logout ou reset de navegação
-          props.navigation.reset({ index: 0, routes: [{ name: 'Login' }] });
-        }}
-      >
-        <Ionicons name="log-out-outline" size={20} color="#fff" />
+      <DrawerItemList {...props} />
+
+      <TouchableOpacity style={styles.logoutButton} onPress={logout}>
         <Text style={styles.logoutText}>Sair</Text>
       </TouchableOpacity>
     </DrawerContentScrollView>
@@ -28,31 +22,31 @@ export default function DrawerContent(props) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'space-between',
-    padding: 20,
-    backgroundColor: '#333',
-  },
   header: {
-    marginBottom: 20,
+    padding: 20,
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#333',
+    marginBottom: 10,
   },
-  userName: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  logo: {
+    width: 60,
+    height: 60,
+    resizeMode: 'contain',
+    marginBottom: 10,
+  },
+  username: {
     color: '#fff',
+    fontSize: 16,
   },
   logoutButton: {
-    marginTop: 40,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#B22222',
-    padding: 12,
-    borderRadius: 8,
+    padding: 16,
+    borderTopWidth: 1,
+    borderTopColor: '#333',
   },
   logoutText: {
-    color: '#fff',
-    marginLeft: 10,
+    color: '#F87171',
     fontWeight: 'bold',
+    textAlign: 'center',
   },
 });

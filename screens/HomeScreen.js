@@ -2,6 +2,7 @@ import { Entypo, Feather, FontAwesome5, Ionicons, MaterialIcons } from '@expo/ve
 import { LinearGradient } from 'expo-linear-gradient';
 import { useState } from 'react';
 import {
+  Alert,
   Image,
   KeyboardAvoidingView,
   Platform,
@@ -13,6 +14,7 @@ import {
   View,
 } from 'react-native';
 import Modal from 'react-native-modal';
+import { supabase } from '../lib/supabase'; // importante
 
 export default function HomeScreen({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -24,11 +26,32 @@ export default function HomeScreen({ navigation }) {
     setModalVisible(true);
   };
 
-  const enviarDenuncia = () => {
-    console.log('Tipo:', selectedTipo);
-    console.log('Descrição:', descricao);
-    setModalVisible(false);
-    setDescricao('');
+  const enviarDenuncia = async () => {
+    // Dados fixos para testes no DF (Asa Norte)
+    const latitude = -15.762163;
+    const longitude = -47.870010;
+    const usuario_id = null; // Ainda não usamos auth integrada
+    const foto_url = null;
+
+    const { error } = await supabase.from('denuncias').insert([
+      {
+        tipo: selectedTipo,
+        descricao,
+        latitude,
+        longitude,
+        usuario_id,
+        foto_url,
+      },
+    ]);
+
+    if (error) {
+      console.error('Erro ao enviar denúncia:', error);
+      Alert.alert('Erro', 'Não foi possível enviar a denúncia.');
+    } else {
+      Alert.alert('Sucesso', 'Denúncia enviada com sucesso!');
+      setModalVisible(false);
+      setDescricao('');
+    }
   };
 
   return (
@@ -150,12 +173,12 @@ const ReportCard = ({ icon, title, subtitle, onPress }) => (
 
 const styles = StyleSheet.create({
   header: {
- flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  paddingHorizontal: 16, // substitui o 'padding' genérico
-  paddingTop: 32,         // reduzido (antes era 49)
-  paddingBottom: 5,      // adiciona um padding inferior suave
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingTop: 32,
+    paddingBottom: 5,
   },
   logoImage: {
     width: 120,
