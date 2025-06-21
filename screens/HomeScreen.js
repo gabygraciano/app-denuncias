@@ -1,7 +1,8 @@
 import { Entypo, Feather, FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
+  Image,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
@@ -36,7 +37,7 @@ export default function HomeScreen({ navigation }) {
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
           <Entypo name="menu" size={32} color="gold" />
         </TouchableOpacity>
-        <Text style={styles.logo}>LOGOTIPO</Text>
+        <Image source={require('../assets/images/logo.png')} style={styles.logoImage} />
       </LinearGradient>
 
       <ScrollView contentContainerStyle={styles.container}>
@@ -149,19 +150,20 @@ const ReportCard = ({ icon, title, subtitle, onPress }) => (
 
 const styles = StyleSheet.create({
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: 16,
-    paddingTop: 48,
+ flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  paddingHorizontal: 16, // substitui o 'padding' genérico
+  paddingTop: 32,         // reduzido (antes era 49)
+  paddingBottom: 5,      // adiciona um padding inferior suave
   },
-  logo: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: 'gold',
+  logoImage: {
+    width: 120,
+    height: 120,
+    resizeMode: 'contain',
   },
   container: {
-    padding: 16,
+    padding: 20,
   },
   alertBox: {
     flexDirection: 'row',
