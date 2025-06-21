@@ -1,50 +1,122 @@
-# Welcome to your Expo app 👋
+## Descrição ℹ️
+O Vigia é um aplicativo mobile para envio de denúncias com geolocalização no Distrito Federal, pensado para promover segurança urbana e geração de dados a partir da participação cidadã. Ele permite que qualquer pessoa envie denúncias sobre desordens urbanas de forma rápida, utilizando a localização aproximada de onde está ou do evento denunciado, além de possuir um botão de alerta de insegurança para que autoridades próximas possam receber a mensagem e diminua o risco de assaltos e outros crimes. A plataforma é integrada com um sistema web de monitoramento de uso pelas autoridades, com os dados gerados no aplicaitvo, a plataforma é alimentada com essas denúncias de desordens urbanas e possibilita que a Polícia possa enviar diretamente a solicitação para o órgão responsável, mas para além disso, permite o monitoramento contínuo dessas entradas e gera dados para o modelo de IA preditiva que consegue mapear zonas de risco e demandas de policiamento, otimizando a gestão da polícia e mantendo a segurança do Distrito Federal com alta acurácia. 
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Funcionalidades 📋
+1. **Cadastro e login de usuários**
+   - Autenticação integrada ao Supabase Auth.
+   - Armazenamento seguro de usuários no banco.
 
-## Get started
+2. **Envio de denúncias**
+   - O usuário pode enviar uma descrição da ocorrência.
+   - A denúncia é enviada junto com coordenadas de geolocalização.
+   - As denúncias são salvas automaticamente no Supabase e integradas com o sistema de monitoramento.
+  
+3. **Botão de alerta de insegurança**
+   - O usuário pode alertar as autoridades imediamente se sentir em situação de perigo eminente.
 
-1. Install dependencies
+4. **Mapa com pontos de risco**
+   - O usuário pode acessar um mapa que mostra áreas de alto, médio e pouco risco baseado em dados reais do sistema de monitoramento.
 
-   ```bash
-   npm install
-   ```
+5. **Notificação de alertas**
+   - O usuário recebe notificação de alerta caso estaja próxima á uma zona de alto risco.
+     
+6. **Gamificação**
+   - O usuário recebe conquistas, medalhas e pontuações pelas denúncias de desordem urbana que ele envia pelo app, incentivando o engajamento cidadão no cuidado do Distrito Federal.
 
-2. Start the app
+## Tech Stack ⚙️
 
-   ```bash
-   npx expo start
-   ```
+### Frontend
+- ![React Native](https://img.shields.io/badge/React%20Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+- ![Expo](https://img.shields.io/badge/Expo-1C1E24?style=for-the-badge&logo=expo&logoColor=white)
+- ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 
-In the output, you'll find options to open the app in a
+#### Bibliotecas e APIs do Frontend
+- **expo-location**: para obter a localização do usuário.  
+- **@react-navigation/native**: para navegação por tabs e stack.  
+- **@expo/vector-icons**: para ícones visuais.  
+- **@supabase/supabase-js**: cliente de comunicação com o Supabase.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Backend
+- ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+#### Funcionalidades no Supabase
+- **Tabela `usuarios`**: gerenciamento de usuários autenticados.
+- **Tabela `denuncias`**: armazenamento das denúncias enviadas.
+- **Auth integrada**: autenticação segura e escalável.
+- **Row Level Security desabilitada** para ambiente de teste.
 
-## Get a fresh project
+## Equipe 🏆
 
-When you're ready, run:
+**Gabriella Graciano de Souza**  
+📧 E-mail: [gabifc_graciano@hotmail.com](mailto:gabifc_graciano@hotmail.com)  
+🖋️ Behance: [behance.net/gabygraciano](https://www.behance.net/gabygraciano)  
+🌐 GitHub: [github.com/gabygraciano](https://github.com/gabygraciano)
+
+**Leonardo Seabra**  
+📧 E-mail: [leoseabrasz@gmail.com](mailto:leoseabrasz@gmail.com)  
+🖋️ Behance: [behance.net/leoseabra2](https://www.behance.net/leoseabra2)  
+
+**Wictor Mannuel Domingos de Melo**  
+📧 E-mail: [wictormannuel@gmail.com](mailto:wictormannuel@gmail.com)  
+🌐 GitHub: [github.com/Wictor0](https://github.com/Wictor0)
+
+**Luís Vinicius Lauriano de França**  
+📧 E-mail: [luislauriano@outlook.com.br](mailto:luislauriano@outlook.com.br)  
+🌐 GitHub: [github.com/luislauriano](https://github.com/luislauriano)
+
+---
+
+## Documentação 📄
+- [Pitch](https://docs.google.com/presentation/d/1Uux5_HOsO_8ycZFP4b0ZRpm7pJAY7d2Ti2AQzNBCy9k/edit?usp=sharing)
+- [Vídeo de Demonstração](https://youtube.com/shorts/g0PqF8p7Psg?si=FFZRF1xsirs3Ggfd)
+
+
+## Instalação ⬇️
 
 ```bash
-npm run reset-project
+- git clone https://github.com/gabygraciano/app-denuncias.git
+cd app-denuncias
+- npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Rodando o projeto 🏃
+```bash
+- npx expo start
+```
 
-## Learn more
+```bash
+Usuário cadastrado para teste: gabi@hotmail.com
+Senha: gabi123
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### Caso precise da chave de API do Supabase para rodar o banco de dados
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+const supabaseUrl = 'https://ezyrcmwtqkzpyalvdziv.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV6eXJjbXd0cWt6cHlhbHZkeml2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA0Njk5NjgsImV4cCI6MjA2NjA0NTk2OH0.xo8sFUn-KmLBNg8cXf9TSzoHLpxoWPVScd_D5FNnUpE';
+```
 
-## Join the community
+## Como contribuir 🤝
+### Branches
+Pull requests devem ser compostos pelo tipo e nome da branch.\
+os nomes das branchs devem ser separados por "-".\
+os tipo são compostos por:
+- feature - Para novas funcionalidades
+- fix - Para bugfixes e hotfixes
 
-Join our community of developers creating universal apps.
+Exemplo: 
+`feature/navbar-mobile`
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### Commits
+Commits devem ser estruturados da seguinte forma <tipo>(<nome-da-branch>): <descrição do commit>\
+Exemplo: 
+`feature(navbar-mobile): adicionando navegação`
+
+### Branch padrão
+- develop
+
+### Pull requests
+Pull requests devem ter uma boa e clara descrição.\
+Os 3 principais tópicos da descrição devem ser:
+`- What I did`
+`- How to test`
